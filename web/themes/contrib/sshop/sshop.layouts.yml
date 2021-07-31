@@ -1,0 +1,15 @@
+homepage_first:
+  label: 'Homepage (first)'
+  path: templates/layouts/homepage/first
+  template: homepage--first
+  category: 'SShop'
+  default_region: main
+  regions:
+    top:
+      label: 'Top'
+    main:
+      label: 'Main'
+    services:
+      label: 'Services'
+    bottom:
+      label: 'Bottom'

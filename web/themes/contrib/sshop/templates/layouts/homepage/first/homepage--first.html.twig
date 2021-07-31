@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * SShop layouts: "Homepage (first)" template.
+ *
+ * Available region variables:
+ * - top
+ * - main
+ * - services
+ * - bottom
+ *
+ */
+#}
+{% if content %}
+  <div{{ attributes .addClass('sshop-homepage-first')}}>
+    {% if content.top %}
+      <div {{ region_attributes.top.addClass('layout__region', 'layout__region--top', 'row') }}>
+        <div class="col-sm-12">
+          {{ content.top }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if content.main %}
+      <div {{ region_attributes.main.addClass('layout__region', 'layout__region--main') }}>
+        {{ content.main }}
+      </div>
+    {% endif %}
+
+    {% if content.services %}
+      <div {{ region_attributes.services.addClass('layout__region', 'layout__region--services', 'row') }}>
+        <div class="layout__region--services--inner container-fluid">
+          {{ content.services }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if content.bottom %}
+      <div {{ region_attributes.bottom.addClass('layout__region', 'layout__region--bottom') }}>
+        {{ content.bottom }}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

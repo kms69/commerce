@@ -1,0 +1,31 @@
+{%
+set classes = [
+  'block',
+  'cart-block',
+  'has-dropdown'
+]
+%}
+<div{{ attributes.addClass(classes) }}>
+  <a href="#">
+    {% if count > 0 %}
+      <span class="shop-number cart-number-items">{{ count }}</span>
+    {% endif %}
+    <span class="shop-icon fa fa-shopping-cart"></span>
+  </a>
+  <div class="block-content header-dropdown cart-block-contents">
+    <div class="cart-contents">
+      {% if content %}
+        <div class="cart-block-content">
+          {{ content }}
+        </div>
+        <div class="cart-block-links">
+          {{ links }}
+        </div>
+      {% else %}
+        <div class="cart-block-empty">
+          {{ 'Cart is empty.'|t }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

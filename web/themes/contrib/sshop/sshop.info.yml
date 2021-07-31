@@ -1,0 +1,35 @@
+name: SShop
+description: eStore is responsive mobile optimized, based on Bootstrap. For full experience please check our <a href="https://www.drupal.org/docs/8/themes/sshop-user-guide">Documentation</a> page and install all required modules if you're not installing the theme using the composer dependencies manager. Made by <a href="https://optasy.com" target="_blank">OPTASY</a> team.
+type: theme
+core: 8.x
+core_version_requirement: ^8 || ^9
+base theme: bootstrap
+
+# Libraries.
+libraries:
+  - 'sshop/global-styling'
+  - 'sshop/bootstrap-scripts'
+  - 'sshop/smartmenus'
+  - 'sshop/smartmenus-bootstrap-addon'
+  - 'sshop/stacktable'
+
+# Regions.
+regions:
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  header: 'Header'
+  content: 'Content'
+  sidebar_first: 'Left Sidebar'
+  sidebar_second: 'Right Sidebar'
+  footer_first: 'Footer First Widget'
+  footer_second: 'Footer Second Widget'
+  footer_third: 'Footer Third Widget'
+  footer_fourth: 'Footer Fourth Widget'
+  footer: 'Footer Bottom'
+
+# Information added by Drupal.org packaging script on 2020-06-29
+version: '8.x-1.12'
+project: 'sshop'
+datestamp: 1593419382

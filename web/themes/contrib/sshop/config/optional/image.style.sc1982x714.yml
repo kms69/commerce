@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: sc1982x714
+label: sc1982x714
+effects:
+  92b522df-8914-4fe5-a30d-1228d40f0f70:
+    uuid: 92b522df-8914-4fe5-a30d-1228d40f0f70
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1928
+      height: 714

@@ -1,0 +1,5 @@
+# Schema for the theme setting configuration file of the SShop theme.
+
+sshop.settings:
+  type: theme_settings
+  label: 'SShop settings'

@@ -1,0 +1,86 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.home
+    - views.view.blog
+    - views.view.product_category
+    - views.view.products
+    - views.view.slider
+  module:
+    - panels
+    - quicktabs
+    - views
+id: home-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    20ca7632-b76f-4bfb-b0d4-e6c404b5feb0:
+      id: 'views_block:blog-from_the_blog_block'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: bottom
+      weight: 0
+      uuid: 20ca7632-b76f-4bfb-b0d4-e6c404b5feb0
+      context_mapping: {  }
+    30b6ff53-a96a-4ce0-a078-6eb79ebbcf3d:
+      id: 'views_block:products-new_products_block'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: main
+      weight: -4
+      uuid: 30b6ff53-a96a-4ce0-a078-6eb79ebbcf3d
+      context_mapping: {  }
+    719cd7ed-7f77-4940-8721-5f601afdb7ad:
+      id: 'views_block:product_category-hot_categories_block'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: main
+      weight: -2
+      uuid: 719cd7ed-7f77-4940-8721-5f601afdb7ad
+      context_mapping: {  }
+    d31dfa6b-12f5-4583-ba5b-728e0b8d49dd:
+      id: 'views_block:slider-homepage_block'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: top
+      weight: 0
+      uuid: d31dfa6b-12f5-4583-ba5b-728e0b8d49dd
+      context_mapping: {  }
+    406a00d1-7350-410d-879a-b5cc7ade3f56:
+      id: 'quicktabs_block:best_sale'
+      label: 'Best Sale'
+      provider: quicktabs
+      label_display: visible
+      region: main
+      weight: -3
+      uuid: 406a00d1-7350-410d-879a-b5cc7ade3f56
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 6f5874be-aa1c-4f78-8b84-11334dc2d101
+  label: null
+  weight: 0
+  layout: homepage_first
+  layout_settings: {  }
+  page_title: Homepage
+  storage_type: page_manager
+  storage_id: home-panels_variant-0
+  builder: standard
+page: home
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

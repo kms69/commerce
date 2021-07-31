@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: s1680
+label: s1680
+effects:
+  b683faff-9371-4e8e-9d3b-a351c989aafb:
+    uuid: b683faff-9371-4e8e-9d3b-a351c989aafb
+    id: image_scale
+    weight: 1
+    data:
+      width: 1680
+      height: null
+      upscale: false

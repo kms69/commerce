@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: sc616x372
+label: sc616x372
+effects:
+  68f9f752-8759-4363-a03c-f1aa32cb244c:
+    uuid: 68f9f752-8759-4363-a03c-f1aa32cb244c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 616
+      height: 372

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/web/modules/contrib/commerce_product_taxonomy_filter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/modules/contrib/commerce_statistic" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/modules/contrib/commerce_wishlist" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/modules/contrib/inline_entity_form" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/modules/contrib/markup" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/modules/contrib/page_manager" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/modules/contrib/quicktabs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/modules/contrib/shs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/modules/contrib/taxonomy_menu" vcs="Git" />
+  </component>
+</project>

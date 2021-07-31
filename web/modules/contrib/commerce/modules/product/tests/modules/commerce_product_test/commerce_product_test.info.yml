@@ -1,0 +1,11 @@
+name: Commerce Product Test
+type: module
+description: 'Test module for Commerce Product.'
+package: Testing
+dependencies:
+  - commerce:commerce_product
+
+# Information added by Drupal.org packaging script on 2021-06-30
+version: '8.x-2.25'
+project: 'commerce'
+datestamp: 1625056427

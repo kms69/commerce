@@ -1,0 +1,77 @@
+// Footer Widgets.
+.footer-widgets {
+  padding: 60px 0;
+  margin-top: 40px;
+  background-color: $footer-widgets-bg;
+  color: $footer-widgets-color;
+  .block {
+    .block-title {
+      text-transform: uppercase;
+      font-size: $font-size-base;
+      margin-top: 0;
+      margin-bottom: 30px;
+      font-weight: bold;
+      @include media-breakpoint-down(md) {
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+  ul.nav {
+    margin: 0;
+    padding: 0;
+    border: none;
+    a {
+      color: $footer-widgets-color;
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
+}
+
+// Footer.
+footer.footer {
+  background-color: $footer-bg;
+  color: $footer-color;
+  font-size: $footer-font-size;
+  padding: 15px 0;
+  margin: 0;
+  border: none;
+  a {
+    color: $brand-primary;
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+  @include media-breakpoint-up(sm) {
+    .footer-copyright {
+      float: left;
+    }
+    .footer-blocks {
+      float: right;
+      & > div {
+        display: inline-block;
+        padding: 0 10px;
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    .footer-copyright,
+    .footer-blocks {
+      text-align: center;
+      & > div {
+        padding: 5px 0;
+        &:last-child {
+          padding-bottom: 0;
+        }
+      }
+    }
+    .footer-copyright {
+      margin-bottom: 10px;
+    }
+  }
+}

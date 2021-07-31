@@ -1,0 +1,88 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - core.entity_view_display.comment.review.default
+    - field.field.commerce_product.default.body
+    - field.field.commerce_product.default.field_category
+    - field.field.commerce_product.default.field_images
+    - field.field.commerce_product.default.field_related_products
+    - field.field.commerce_product.default.field_reviews
+    - field.field.commerce_product.default.stores
+    - field.field.commerce_product.default.variations
+    - image.style.sc600x600
+  module:
+    - colorbox
+    - comment
+    - commerce_product
+    - commerce_wishlist
+    - text
+id: commerce_product.default.default
+targetEntityType: commerce_product
+bundle: default
+mode: default
+content:
+  body:
+    type: text_default
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_category:
+    weight: 3
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_images:
+    weight: 0
+    label: hidden
+    settings:
+      colorbox_node_style: sc600x600
+      colorbox_node_style_first: ''
+      colorbox_image_style: ''
+      colorbox_gallery: field_post
+      colorbox_gallery_custom: ''
+      colorbox_caption: auto
+      colorbox_caption_custom: ''
+    third_party_settings: {  }
+    type: colorbox
+    region: content
+  field_related_products:
+    weight: 5
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_reviews:
+    weight: 4
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  variations:
+    type: commerce_add_to_cart
+    weight: 2
+    label: hidden
+    settings:
+      combine: true
+    third_party_settings:
+      commerce_wishlist:
+        show_wishlist: '1'
+        weight_wishlist: '99'
+        label_wishlist: ''
+    region: content
+hidden:
+  created: true
+  stores: true
+  uid: true

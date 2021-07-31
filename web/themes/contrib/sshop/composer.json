@@ -1,0 +1,31 @@
+{
+  "name": "drupal/sshop",
+  "description": "SShop is responsive mobile optimized, based on Bootstrap. Made by OPTASY team.",
+  "type": "drupal-theme",
+  "license": "GPL-2.0+",
+  "homepage": "http://drupal.org/project/sshop",
+  "authors": [
+    {
+      "name": "Ivan Tibezh (tibezh)",
+      "homepage": "https://www.drupal.org/u/tibezh",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "docs": "https://www.drupal.org/docs/8/themes/sshop-user-guide",
+    "issues": "https://www.drupal.org/project/issues/sshop",
+    "source": "http://cgit.drupalcode.org/sshop"
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "drupal/bootstrap": "^3.7",
+    "drupal/commerce": "^2.13",
+    "drupal/commerce_wishlist": "3.x-dev",
+    "drupal/colorbox": "^1.4",
+    "drupal/quicktabs": "3.x-dev",
+    "drupal/fontawesome": "^2.0",
+    "drupal/views_slideshow": "^4.6",
+    "drupal/panels": "^4.4",
+    "drupal/page_manager": "^4.0"
+  }
+}

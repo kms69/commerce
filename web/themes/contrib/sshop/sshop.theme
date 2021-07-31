@@ -1,0 +1,163 @@
+<?php
+
+/**
+ * @file
+ * The primary PHP file for the SShop theme.
+ */
+
+use Drupal\block\Entity\Block;
+use Drupal\Component\Utility\Xss;
+use Drupal\Core\Url;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for block.html.twig.
+ */
+function sshop_theme_suggestions_block_alter(array &$suggestions, array $vars) {
+  if (!empty($vars['elements']['#id'])) {
+    $block = Block::load($vars['elements']['#id']);
+    $suggestions[] = 'block__' . $block->getRegion() . '__' . $vars['elements']['#id'];
+  }
+  // Use this 'else if' only if you are using page_manager module and want to
+  // know which region is the block.
+  elseif (isset($vars['elements']['#configuration']['region'])) {
+    $plugin_ids = explode(':', $vars['elements']['#plugin_id']);
+    $suggestions[] = 'block__page_' . $vars['elements']['#configuration']['region'] . '__' . end($plugin_ids);
+    $suggestions[] = 'block__page_' . $vars['elements']['#configuration']['region'] . '__' . reset($plugin_ids);
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for taxonomy-term.html.twig.
+ */
+function sshop_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $vars) {
+  if (isset($vars['elements'])) {
+    /** @var \Drupal\taxonomy\TermInterface $term */
+    $term = $vars['elements']['#taxonomy_term'];
+    $suggestions[] = 'taxonomy_term__' . $vars['elements']['#view_mode'];
+    $suggestions[] = 'taxonomy_term__' . $term->bundle() . '__' . $vars['elements']['#view_mode'];
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function sshop_preprocess_page(&$vars) {
+  // Define and process copyright text.
+  $copyright_text = theme_get_setting('copyright_text');
+  if (!empty($copyright_text)) {
+    $copyright_text = str_replace('@year', date('Y'), theme_get_setting('copyright_text'));
+    $vars['copyright_text'] = $copyright_text;
+  }
+  $display_theme_credits = theme_get_setting('display_theme_credits');
+  if (!empty($display_theme_credits)) {
+    $vars['theme_credits']['#markup'] = t(
+      'Build by <a rel="nofollow" href="@url">OPTASY</a>',
+      ['@url' => 'https://www.optasy.com']
+    );
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for views-view.html.twig.
+ */
+function sshop_preprocess_views_view(&$vars) {
+  // Add class for each view with view_id and display_id values.
+  if (isset($vars['id']) && isset($vars['display_id'])) {
+    $vars['attributes']['class'][] = "views-view-{$vars['id']}-{$vars['display_id']}";
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for taxonomy-term--hot-category.html.twig.
+ */
+function sshop_preprocess_taxonomy_term__hot_category(&$vars) {
+  if (!empty($vars['content']['field_image'][0]['#markup'])) {
+    $bg_image_url = $vars['content']['field_image'][0]['#markup'];
+    $bg_image_url = Xss::filter($bg_image_url);
+    $vars['attributes']['style'] = "background-image: url({$bg_image_url})";
+  }
+}
+
+/**
+ * Implements hool_preprocess_HOOK() for node--slider--teaser.html.twig.
+ */
+function sshop_preprocess_node__slider__teaser(&$vars) {
+  if (!empty($vars['content']['field_image'][0]['#markup'])) {
+    $bg_image_url = $vars['content']['field_image'][0]['#markup'];
+    $bg_image_url = Xss::filter($bg_image_url);
+    $vars['attributes']['style'] = "background-image: url({$bg_image_url})";
+  }
+  if (!empty($vars['content']['field_link'][0]['#url'])) {
+    $url = $vars['content']['field_link'][0]['#url']->toString();
+    $url = Xss::filter($url);
+    $vars['direct_url'] = $url;
+  }
+}
+
+/**
+ * Implements hool_preprocess_HOOK() for comment.html.twig.
+ */
+function sshop_preprocess_comment(&$vars) {
+  // Configure permalink url.
+  /** @var \Drupal\comment\CommentInterface $comment */
+  $comment = $vars['elements']['#comment'];
+  $vars['permalink_url'] = Url::fromUserInput("#comment-{$comment->id()}");
+}
+
+/**
+ * Implements hool_preprocess_HOOK() for commerce-product.html.twig.
+ */
+function sshop_preprocess_commerce_product(&$vars) {
+  /** @var \Drupal\commerce_product\Entity\ProductInterface $product */
+  $product = $vars['elements']['#commerce_product'];
+
+  /** @var \Drupal\comment\CommentFieldItemList $reviews */
+  if ($product->hasField('field_reviews') && $reviews = $product->get('field_reviews')) {
+    $vars['reviews_count'] = $reviews->comment_count;
+  }
+
+  $vars['title'] = strip_tags($product->getTitle());
+}
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function sshop_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+  // Lock Fluid container option in the General Bootstrap theme settings.
+  $form['general']['container']['fluid_container']['#default_value'] = 1;
+  $form['general']['container']['fluid_container']['#disabled'] = TRUE;
+  $form['general']['container']['fluid_container']['#description'] = t('SShop theme works with fluid container only.');
+
+  // Footer copyrights settings.
+  $form['sshop_settings']['sshop_settings'] = [
+    '#type' => 'details',
+    '#title' => t('SShop Settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  ];
+
+  $form['sshop_settings']['sshop_settings']['copyright_text'] = [
+    '#type' => 'textfield',
+    '#title' => t('Enter copyright text'),
+    '#default_value' => theme_get_setting('copyright_text'),
+    '#description' => t('Use @year placeholder for define current year.'),
+  ];
+
+  $form['sshop_settings']['sshop_settings']['display_theme_credits'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Display theme credits'),
+    '#default_value' => theme_get_setting('display_theme_credits'),
+  ];
+
+  $message = t('
+      Do you need help to customize this theme? We can help!<br>
+      - web: <a href="@url">https://www.optasy.com</a><br>
+      - e-mail: <a href="mailto:@email">contact@optasy.com</a><br>
+      - phone: (416) 243.2431
+    ',
+    ['@url' => 'https://www.optasy.com', '@email' => 'contact@optasy.com']
+  );
+
+  \Drupal::messenger()->addMessage($message);
+}

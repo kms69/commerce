@@ -1,0 +1,19 @@
+/**
+ * Filter styles.
+ */
+
+// Mimic .panel-default styling.
+.filter-wrapper {
+  background-color: $panel-bg;
+  @extend .clearfix;
+}
+.filter-help {
+  float: right;
+  line-height: 1;
+  margin: 10px;
+}
+
+// Full list page.
+.nav.nav-tabs.filter-formats {
+  margin-bottom: 15px;
+}

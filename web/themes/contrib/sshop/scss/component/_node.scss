@@ -1,0 +1,124 @@
+/**
+ * Node styling.
+ */
+
+.node-preview-container {
+  margin-top: -($grid-gutter-width / 2);
+}
+
+.node-preview-form-select {
+  padding: ($grid-gutter-width / 2);
+}
+
+.node {
+  .submitted-info {
+    margin-bottom: 10px;
+  }
+  .submitted-author {
+    margin-left: 10px;
+  }
+  &.teaser {
+    margin-bottom: 20px;
+    &.blog {
+      a {
+        color: $brand-primary;
+        &:hover {
+          color: $link-hover-color;
+        }
+      }
+      ul.links {
+        a {
+          color: $link-color;
+        }
+      }
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 26px;
+    }
+    @include media-breakpoint-down(xs) {
+      &.blog {
+        h2 {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+  &.full {
+    background-color: #fff;
+    padding: 20px;
+    .submitted-info {
+      a {
+        color: $brand-primary;
+      }
+    }
+    .field {
+      margin: 5px 0;
+      &.field--label-inline {
+        .field--item {
+          margin: 0 5px;
+          display: inline-block;
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+    a {
+      color: $link-hover-color;
+      &:hover {
+        color: darken($link-hover-color, 10%);
+      }
+    }
+    &.blog {
+      .field--type-image img {
+        margin: 0 auto 15px;
+      }
+    }
+  }
+  ul.links {
+    margin-top: 18px;
+    li {
+      padding: 0 10px;
+      &:first-child {
+        padding-left: 5px;
+      }
+      a {
+        color: $link-hover-color;
+        &:hover {
+          color: darken($link-hover-color, 10%);
+        }
+      }
+      &.comment-new-comments {
+        display: none !important;
+      }
+    }
+  }
+  &.slider.teaser {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-bottom: 0;
+    a.direct-url {
+      color: #fff;
+      display: block;
+      min-height: 132px;
+      padding: 12% 10%;
+      h3,
+      .content {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 15px;
+        display: inline-block;
+        width: auto;
+      }
+      h3 {
+        text-transform: uppercase;
+      }
+      .content {
+        font-size: 20px;
+      }
+    }
+  }
+}

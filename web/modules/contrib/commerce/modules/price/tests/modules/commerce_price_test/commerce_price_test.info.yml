@@ -1,0 +1,11 @@
+name: Commerce Price Test
+type: module
+package: Testing
+dependencies:
+  - commerce:commerce_store
+  - commerce:commerce_price
+
+# Information added by Drupal.org packaging script on 2021-06-30
+version: '8.x-2.25'
+project: 'commerce'
+datestamp: 1625056427
