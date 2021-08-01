@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '213ac0faf6d9ac97af02103cfdbaa0d1c4e2f3b4',
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -159,6 +159,15 @@
             'provided' => array(
                 0 => '^1.2',
             ),
+        ),
+        'cweagans/composer-patches' => array(
+            'pretty_version' => '1.7.1',
+            'version' => '1.7.1.0',
+            'type' => 'composer-plugin',
+            'install_path' => __DIR__ . '/../cweagans/composer-patches',
+            'aliases' => array(),
+            'reference' => '9888dcc74993c030b75f3dd548bb5e20cdbd740c',
+            'dev_requirement' => false,
         ),
         'dflydev/dot-access-data' => array(
             'pretty_version' => 'v1.1.0',
@@ -1099,12 +1108,12 @@
             ),
         ),
         'drupal/recommended-project' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '213ac0faf6d9ac97af02103cfdbaa0d1c4e2f3b4',
             'dev_requirement' => false,
         ),
         'drupal/responsive_image' => array(
@@ -1206,12 +1215,14 @@
             'dev_requirement' => false,
         ),
         'drupal/swiftmailer' => array(
-            'pretty_version' => '2.0.0',
-            'version' => '2.0.0.0',
+            'pretty_version' => 'dev-2.x',
+            'version' => 'dev-2.x',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/swiftmailer',
-            'aliases' => array(),
-            'reference' => '8.x-2.0',
+            'aliases' => array(
+                0 => '2.x-dev',
+            ),
+            'reference' => '1b3193414d3cabb7666520f9234c74bd689410de',
             'dev_requirement' => false,
         ),
         'drupal/syslog' => array(
@@ -1579,8 +1590,8 @@
         'psr/container-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0',
-                1 => '^1.0',
+                0 => '^1.0',
+                1 => '1.0',
             ),
         ),
         'psr/event-dispatcher-implementation' => array(

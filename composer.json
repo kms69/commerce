@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.7",
         "drupal/admin_toolbar": "^3.0",
         "drupal/bootstrap": "^3.23",
         "drupal/commerce": "^2.25",
@@ -34,7 +35,7 @@
         "drupal/shs": "1.x-dev@dev",
         "drupal/sshop": "^1.12",
         "drupal/superfish": "^1.4",
-        "drupal/swiftmailer": "^2.0",
+        "drupal/swiftmailer": "2.x-dev@dev",
         "drupal/taxonomy_menu": "3.x-dev@dev",
         "drupal/views_list_sort": "^1.4",
         "drupal/views_taxonomy_term_name_depth": "^7.0",
@@ -49,7 +50,9 @@
         "sort-packages": true
     },
     "extra": {
-        "drupal-scaffold": {
+
+
+       "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
             }
